@@ -1,215 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Anthony 2023</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-  	<h1 align="center">ANTHONY MUTINDA (Mhesh)</h1>
+  <title>Countdown and Redirect</title>
   <style>
-   .collapsible {
-     cursor: pointer;
-     border: none;
-     background-color: #f1f1f1;
-     padding: 10px;
-     width: 100%;
-     text-align: left;
-     outline: none;
-     font-weight: bold;
-   }
-  body{
-   font-size: 10px;
-  }
-   .content {
-     display: none;
-     padding: 10px;
-     background-color: #fff;
-   }
-   .active {
-     background-color: red;
-     color: white;
-     font-family: Georgia;
-   }
     #countdown {
       font-size: 2em;
       font-weight: bold;
       text-align: center;
     }
-    #countdown span {
-      display: inline-block;
-      margin: 0 1px;
-      background-color: red;
-      color: #fff;
-      padding: 0px;
-      border-radius: 5px;
+    .collapsible {
+      cursor: pointer;
+      border: none;
+      background-color: #f1f1f1;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      outline: none;
+      font-weight: bold;
+    }
+
+    .content {
+      display: none;
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    .active {
+      background-color: #ccc;
     }
   </style>
+</head>
+<body>
   <div id="countdown">
-    <span id="days"></span>
-    <span id="hours"></span>
-    <span id="minutes"></span>
-    <span id="seconds"></span>
+    Anthony Manifesto Launch: <hr>
+    <span id="timer"></span>
   </div>
   <script>
-    var countDownDate = new Date("September 20, 2023 23:59:59").getTime();
-    var x = setInterval(function() {
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById("days").innerHTML = days + "d";
-      document.getElementById("hours").innerHTML = hours + "h";
-      document.getElementById("minutes").innerHTML = minutes + "m";
-      document.getElementById("seconds").innerHTML = seconds + "s";
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "Mbele iko Sawa 🕊️";
+    // Set the target future date and time
+    var targetDate = new Date("July 24, 2023 10:57:59");
+
+    // Update the countdown every 1 second
+    var timer = setInterval(function() {
+      // Get the countdown element
+      var countdownElement = document.getElementById("timer");
+
+      // Get the current date and time
+      var currentDate = new Date().getTime();
+
+      // Find the time remaining between the current date and the target date
+      var timeRemaining = targetDate - currentDate;
+
+      // Calculate the days, hours, minutes, and seconds remaining
+      var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+      // Display the countdown
+      countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+      // If the countdown is finished, redirect to a new HTML file
+      if (timeRemaining <= 0) {
+        clearInterval(timer);
+        window.location.href = "aaaa.html"; // Replace "newpage.html" with the URL of the HTML file you want to redirect to
       }
     }, 1000);
   </script>
-	<header>
-	<h2 align="center">For MULESA Chairperson 2023/24</h2>
-	<button class="collapsible">Menu +</button>
-		   <div class="content">
-		  <p><ol>
-		     	  <li><a href="#about">About</a></li>
-		     	  <li><a href="#agenda">Agenda</a></li>
-		     	  <li><a href="#journey">Journey</a></li>
-		     	  <li><a href="#education">Education</a></li>
-		     	  <li><a href="#achievement">Achievements</a></li>
-		     	   <li><a href="#skill">Skills</a></li>
-		     	   <li><a href="#contact">Contacts</a></a></li><hr>
-		     	   <a href="manifesto">Download Full Manifesto</a></li><br>
-		     	   <a href="anthony.png">View Online Manifesto</a>
-		     	    
-		     	</ol> </p>
-		     
-		   </div>
-		   <script>
-		     var coll = document.getElementsByClassName("collapsible");
-		     var i;
-		     for (i = 0; i < coll.length; i++) {
-		       coll[i].addEventListener("click", function() {
-		         this.classList.toggle("active");
-		         var content = this.nextElementSibling;
-		         if (content.style.display === "block") {
-		           content.style.display = "none";
-		         } else {
-		           content.style.display = "block";
-		         }
-		       });
-		     }
-		   </script>
-		  
-		 
-		</nav>
-	</header>
-	<main>
-		<section id="about">
-			<h2>About Mutinda</h2>
-			<p>Anthony Mutinda is a dedicated public servant who has been working for the people of our Nation for over a decade. As a former Maseno University Lower Eastern students Executive member and an academician, he knows firsthand the challenges that our community faces and has the experience and vision to lead us forward.</p>
-			<img src="anthony.png" alt="anthony" width="100%">
-		</section>
-		<section id="agenda">
-			<h2>Big 7 Agenda 2023/24</h2>
-			<ol>
-				<li><strong>Effective Administration:</strong>Anthony is an experienced policy maker and leader who believes that each executive member is responsible for their election. Implementing a system that clearly defines the roles of each executive member runs a long way with our constitution. By an act of the Executive , having three Mulesa Executive Committees;
-				<ul type="square">
-				  <li><strong>Mulesa Events Committee</strong></li>
-				  [Organising Sec, Treasurer,Vice Sec Gen,Year 4,3,2,1]
-				  <li><strong>Mulesa County/Bursary Committee</strong></li> [Vice Chairperson, 3 County reps]
-				  <li><strong>Mulesa Special Delegation Committee</strong></li> [Chairperson,Sec Gen,4th Year , 2 or 4 Members]
-				  <li><strong>Independent Advisory office of the Fouth Year</strong></li>
-				</ul>
-				will foster culture collaboration and shared decision making that will promote efficiency and responsibility.</li>
-				<li><strong>Enhance Academic Support:</strong> We will foster and promote student-led initiatives, clubs, support talents (e.g sports),study groups, hobbies, mentorship programs and all academic interests as best as possible.</li>
-				<li><strong>Inclusivity:</strong> We will expand member involvement in decision making , consultation and suggestions on initiatives establishment to create sense of belonging and service.</li>
-				<li><strong>Fostering Diversity and Inclusion:</strong> We will hold well organized cultural events,hikes and members engagement events in the most transparent manner ever. We believe that a set up Events Committee will promote direct involvement in opinion abstraction.</li>
-				<li><strong>Embracing Digitization and Technological Advancement:</strong>Recognizing the transformative power of technology and academics, we remain positive to lead MULESA towards a more digitized and advanced future. Some of the digital tools we believe will streamline our welfare will include, A digital Register to keep member participation records , dully functional Website, Digital voter register Among others.</li>
-				<li><strong>Transparency and Accountability:</strong> Best acts of Executive will cusion respect and trust of executive from its members. We believe that propers documented records,minutes , regular reports and updates to the members will ensure transparency. A more open channel of questioning and feedback from the executive will run a long way with trust and accountability. </li>
-				<li><strong>Strengthening our Welfare:</strong> A more vocal and student handbook adherence association is the best we can wish for. Collaboration with other houses ensures friendly coexistence and family belonging.</li>
-			</ol>
-			<h3>Vice Chairperson</h3>
-			<p>Dear Members,<br>We are rich people, blessed with diversity and talent.
-In this moment of our story of building Mulesa
-we want, we have before us a grand opportunity.An opportunity as the great people of our country, to 
-join hands and make what will hopefully be a lasting contribution to uplifting our lives,to advancing our common interests , and to add to the abundance of our academic world.
-We have an opportunity to animate the intentions that underpin our social contract as a people. An opportunity to enrich the quality of life of every member, and to ensure that every member of our great 
-association enjoys the rights, privileges and benefits of belonging.
-We are at a delicate moment of our history, a moment that calls for leadership that is people centered, a leadership that views things with a social justice lens. 
-It is a moment that calls for leaders with a shared history of fighting for the rights of the people, for democracy and the rule of law, leaders with a shared history of sacrifice and servant leadership to band together once again to advance the collective agenda of our land.
-			</p>
-			
-			
-			<p>For more detailed information visit the Menu Bar to <a href="manifesto">Read online Manifesto</a>.<br>
-			For more detailed information visit the Menu Bar to <a href="manifesto">Download Full Manifesto</a>.</p>
-		</section>
-			<section id="achievement">
-			  <h2>Achievements</h2>
-			  	<ul>
-			  	  <li><strong>Logo :</strong>Thou not holding a powerful position, One of the Greatest achievement since I joined our association last Year was successful transition to a new customized logo that maintained high standards of awareness and identity.</li>
-			  	  <li><strong>Publication press: </strong> At all time my printer was used by the offices of our Secretary General and that of Chairperson to provide Posters and documentation whenever the office required. We gave these Services at the best of our standards and free of charge. </li>
-			  	  <li><strong>Truthful matters: </strong>
-			  	    I strongly stood up for the members whenever ill debates and bad leadership tried to wreck down our unity. I protected public funds from embezzlement by rogue cartels to the best of my capabilities with available powers as a second year Representative. I always remained committed to impeachment of illegitimate leaders.</li>
-			  	  <li><strong>Constitution:</strong> Being a firm policy maker and an editor , i still believe in a strong constitution that bides each and every member willingly and lawfully equal.</li>
-			  	</ul>
-		<section id="journey">
-			<h2>Political Journey</h2>
-			<p>Mutinda is dedicated to leveraging his experience, skills, and vision to bring about meaningful political achievements that benefit all members of our community.Throughout history, politics has been the driving force behind many social, economic, and cultural changes.</p>
-						<ul>
-						  <li><strong>Sept 2023: </strong>Maseno University Lower Eastern Students Association Chairperson aspirant.</li>
-						  <li><strong>2022 to Present: </strong>Meru School class of 2020 Chairperson.</li>
-						  <li><strong>2022 to 2023: </strong>
-			MULESA Second Year representative.</li>
-						  <li><strong>2021 to 2022 :</strong> Co-Founder and 1st President P-Youth Foundation, Meru.</li>
-						  	<li><strong>Jan 2016 :</strong>Elected with 90% Votes for position of primary School Headboy.</li>
-						<li><strong>2011 to 2013 :</strong>Class prefect.</li>
-						<li><strong>Other Leadership roles performed :</strong>Treasurer at Youth Group, </li>
-						</ul>
-		</section>
-		
-		<section id="education">
-			<h2>Education</h2>
-			<ul>
-			  <li><strong>2021 to present : </strong>Joined Maseno University School of Computing and Informatics for Bachelor's Degree.</li>
-			  <li><strong>Online Student : </strong>Enrolled at Cisco Networking Academy.</li>
-			    <li><strong>Online Student :</strong>Enrolled at University of the People Online program.</li>
-			    <li><strong>Alumni : </strong>Meru School</li>
-			</ul>
-    		<section id="skill">
-    	  	  <h2>Skills and Interests</h2>
-    	  	  <ul><u><strong>Skills</strong></u>
-    	  	   <li>Leadership</li>
-    	  	   <li>Negotiation</li>
-    	  	   <li>Policy Making</li>
-    	  	   <li>Decision Making</li>
-    	  	   <u><strong>Interests</strong></u>
-    	  	   <li>3D modeling</li>
-            </ul><hr>
-    	  <section id="contact" align="center">
-    	  	  <h2 align="center">Contacts</h2>
-    	  	  <ul type="none">
-    	  	    <li><strong>Email:</strong>anthonymutinda56@gmail.com</li>
-    	  	   <li><strong>Facebook:</strong>Anthony Mutinda (Hon)</li>
-    	  	   <li><strong>Telegram:</strong>t.me/a6572</li>
-    	  	   <li><strong>Twitter:</strong>Anthony Mutinda</li>
-    	  	  </ul>
-    	<p> Vote Mutinda , Vote Leadership , Mbele iko sawa </p>
-    	<script>
-    	  (function(d, w, c) {
-    	    w.ChatraID = 'usQFmZiaPKyKmrb4E';
-    	    var s = d.createElement('script');
-    	    w[c] = w[c] || function() {
-    	      (w[c].q = w[c].q || []).push(arguments);
-    	    };
-    	    s.async = true;
-    	    s.src = 'https://call.chatra.io/chatra.js';
-    	    if (d.head) d.head.appendChild(s);
-    	  })(document, window, 'Chatra');
-    	</script>
+  <button class="collapsible">Brief Overview+</button>
+  <div class="content">
+    <p><h3>Political Journey</h3>
+    Mutinda is dedicated to leveraging his experience, skills, and vision to bring about meaningful political achievements that benefit all members of our community.Throughout history, politics has been the driving force behind many social, economic, and cultural changes in the world.</p>
+  </div>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
