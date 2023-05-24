@@ -1,91 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Anthony_Mutinda-2023/24</title>
+  <title>Manifesto Launch Countdown</title>
   <style>
-    #countdown {
-      font-size: 2em;
-      font-weight: bold;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
       text-align: center;
     }
-    .collapsible {
-      cursor: pointer;
-      border: none;
-      background-color: #f1f1f1;
-      padding: 10px;
-      width: 100%;
-      text-align: left;
-      outline: none;
+    
+    #countdown {
+      margin-top: 150px;
+      font-size: 40px;
       font-weight: bold;
+      color: #333;
     }
-
-    .content {
-      display: none;
-      padding: 10px;
-      background-color: #fff;
+    
+    #countdown span {
+      display: inline-block;
+      margin: 0 20px;
     }
-
-    .active {
-      background-color: #ccc;
+    
+    #countdown .countdown-value {
+      font-size: 60px;
+      color: #e74c3c;
     }
   </style>
 </head>
 <body>
   <div id="countdown">
-    Anthony Manifesto Launch <br>
-    This manifesto opens in : <hr>
- 
-    <span id="timer"></span>
+    <h2>Mbele iko sawa</h2>
+  <p>Vote Mutinda ! </p>
+    <h1>Manifesto Launch Countdown</h1>
+    <div>
+      <span class="countdown-value" id="days">00</span>
+      <span class="countdown-label">Days</span>
+    </div>
+    <div>
+      <span class="countdown-value" id="hours">00</span>
+      <span class="countdown-label">Hours</span>
+    </div>
+    <div>
+      <span class="countdown-value" id="minutes">00</span>
+      <span class="countdown-label">Minutes</span>
+    </div>
+    <div>
+      <span class="countdown-value" id="seconds">00</span>
+      <span class="countdown-label">Seconds</span>
+    </div>
   </div>
+
   <script>
-    // Set the target future date and time
-    var targetDate = new Date("July 24, 2023 10:57:59");
-
-    // Update the countdown every 1 second
+    var targetDate = new Date("July 24, 2023 10:00:00").getTime();
     var timer = setInterval(function() {
-      // Get the countdown element
-      var countdownElement = document.getElementById("timer");
-
-      // Get the current date and time
       var currentDate = new Date().getTime();
-
-      // Find the time remaining between the current date and the target date
       var timeRemaining = targetDate - currentDate;
-
-      // Calculate the days, hours, minutes, and seconds remaining
+      
       var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
       var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-      // Display the countdown
-      countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-
-      // If the countdown is finished, redirect to a new HTML file
+      
+      document.getElementById("days").textContent = formatValue(days);
+      document.getElementById("hours").textContent = formatValue(hours);
+      document.getElementById("minutes").textContent = formatValue(minutes);
+      document.getElementById("seconds").textContent = formatValue(seconds);
+      
       if (timeRemaining <= 0) {
         clearInterval(timer);
-        window.location.href = "aaaa.html"; // Replace "newpage.html" with the URL of the HTML file you want to redirect to
+        document.getElementById("countdown").innerHTML = "<h1>Manifesto Launch</h1><h2>Now Live!</h2>";
       }
     }, 1000);
-  </script>
-  <button class="collapsible">Brief Overview+</button>
-  <div class="content">
-    <p><h3>Political Journey</h3>
-    Mutinda is dedicated to leveraging his experience, skills, and vision to bring about meaningful political achievements that benefit all members of our community.Throughout history, politics has been the driving force behind many social, economic, and cultural changes in the world.</p>
-  </div>
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
+    
+    function formatValue(value) {
+      return value.toString().padStart(2, '0');
     }
   </script>
 </body>
